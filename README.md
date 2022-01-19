@@ -1,7 +1,7 @@
 # genome_2021
 
 
-0. 
+## 0. 
 
 SERVER = "\IPCH1-872004-YWCPCH\Labs\LML\LML_collection\major_studies\texture\LML Collection"
 
@@ -23,7 +23,7 @@ ACFILE = "Darkroom papers (to be processed).xlsx"
 -- ACFILE added to "flags" from removable drive "expak"
 
 
-1. 
+## 1. 
 
 FLAGFILE = "flags.csv"
 
