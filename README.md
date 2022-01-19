@@ -1,16 +1,20 @@
 # genome_2021
-processing scripts for 2021-2022 measurement of photographic paper collection (the "genome")
 
 0. 
 
---Measurement files added to "genome_2021" in "lml" Dropbox folder
-
 SERVER = "\IPCH1-872004-YWCPCH\Labs\LML\LML_collection\major_studies\texture\LML Collection"
+DCFILE = "binder_flags_Crockett.xlsx"
+JDFILE = "20211221 Issues and Notes.xlsx"
+ACFILE = "Darkroom papers (to be processed).xlsx"
 
---Texture files added to SERVER
+-- Measurement files added to "genome_2021" in "lml" Dropbox folder
 
---"binder_flags_Crockett.xlsx" added to "flags" inside "genome_2021"
+-- Texture files added to SERVER
 
---"20211221 Issues and Notes.xlsx" added to SERVER and then subsequently to "flags"
+-- DCFILE added to "flags" inside "genome_2021"
 
---"Darkroom papers (to be processed).xlsx" added to "flags" from a removable drive Austin was using
+-- JDFILE added to SERVER and then subsequently to "flags"
+
+-- ACFILE added to "flags" from a removable drive Austin was using
+
+1. 
