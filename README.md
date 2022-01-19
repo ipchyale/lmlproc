@@ -34,8 +34,8 @@ FLAGFILE = "flags.csv"
 
 All 2021 measurement files are collected in Dropbox folder "lml/genome_2021". But where are all the original measurement files?
 
-texture: "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/collection_catalog/client files/texture_images/from_camera"
+**texture:** "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/collection_catalog/client files/texture_images/from_camera"
 
-thickness: in the database itself, in columns "T1" through "T5". The server contains a file, "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/major_studies/Thickness/thickness_charts.xls", but it appears to be a database export and not a raw source of thickness measurements.
+**thickness:** in the database itself, in columns "T1" through "T5". The server contains a file, "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/major_studies/Thickness/thickness_charts.xls", but it appears to be a database export and not a raw source of thickness measurements.
 
 
