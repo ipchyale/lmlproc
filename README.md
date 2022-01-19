@@ -36,4 +36,6 @@ All 2021 measurement files are collected in Dropbox folder "lml/genome_2021". Bu
 
 texture: "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/collection_catalog/client files/texture_images/from_camera"
 
+thickness: in the database itself, in columns "T1" through "T5"
+
 
