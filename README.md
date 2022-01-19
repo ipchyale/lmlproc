@@ -29,3 +29,11 @@ FLAGFILE = "flags.csv"
 
 ``flags.ipynb(DCFILE,JDFILE,ACFILE) -> FLAGFILE``
 
+
+## 2.
+
+All 2021 measurement files are collected in Dropbox folder "lml/genome_2021". But where are all the original measurement files?
+
+texture: "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/collection_catalog/client files/texture_images/from_camera"
+
+
