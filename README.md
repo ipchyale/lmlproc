@@ -20,7 +20,7 @@ ACFILE = "Darkroom papers (to be processed).xlsx"
 
 -- JDFILE added to SERVER and then subsequently to "flags"
 
--- ACFILE added to "flags" from a removable drive Austin was using
+-- ACFILE added to "flags" from removable drive "expak"
 
 
 1. 
