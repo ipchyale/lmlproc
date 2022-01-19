@@ -27,5 +27,5 @@ ACFILE = "Darkroom papers (to be processed).xlsx"
 
 FLAGFILE = "flags.csv"
 
-``flags.ipynb(DCFILE,JDFILE,ACFILE) -> FLAGFILE''
+``flags.ipynb(DCFILE,JDFILE,ACFILE) -> FLAGFILE``
 
