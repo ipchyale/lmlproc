@@ -12,11 +12,11 @@ JDFILE = "20211221 Issues and Notes.xlsx"
 ACFILE = "Darkroom papers (to be processed).xlsx"
 
 
--- Measurement files added to "genome_2021" in "lml" Dropbox folder
+-- Measurement files added to Dropbox folder "lml/genome_2021"
 
 -- Texture files added to SERVER
 
--- DCFILE added to "flags" inside "genome_2021"
+-- DCFILE added to "lml/genome_2021/flags"
 
 -- JDFILE added to SERVER and then subsequently to "flags"
 
