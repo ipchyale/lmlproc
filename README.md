@@ -40,4 +40,6 @@ All 2021 measurement files are collected in Dropbox folder "lml/genome_2021". Bu
 
 Legacy thickness measurements come from the database itself, in columns "T1" through "T5". The server contains a file, "IPCH1-872004-YWCPCH/Labs/LML/LML_collection/major_studies/Thickness/thickness_charts.xls", but it appears to be a database export and not a raw source of thickness measurements.
 
+**gloss:**
 
+Legacy gloss measurements are collected in a file (of unknown provenance) from 2015, and then alternatively in a study by Genevieve from 2019. There is some conflict with what the database reports, and some data puzzles remain about those measurements. All of Paul's 2015 measurements are in sample books, and all of Genevieve's measurements are from the binders.
