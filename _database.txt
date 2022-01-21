@@ -1,0 +1,4 @@
+-Database contains duplicate catalog numbers not connected to fiber analysis
+-Some may be "orphan" records that were abandoned after mistakes
+-Some records contain impossible metadata combinations (e.g., sample book but # sheets)
+-Database issues can be largely cleared up during re-imaging of collection
