@@ -1,0 +1,7 @@
+-we are searching for legacy measurement files
+-most thickness measurements in database are from GCI study
+-"gloss" and "Gloss?" columns in database do not match
+ -may be that "Gloss?" checkboxes for some gloss-measured papers were left unchecked
+-"gloss.xlsx" raw file contains 1550 unique catalog numbers, and there are 1551 non-null values in "Gloss?" column, but union set is much larger than intersection
+-"gloss.xlsx" also contains many catalog numbers that do not exist in database
+ -need to be checked for 'primary' catalog number neighbors (idea is that secondary numbers are wrong)
