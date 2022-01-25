@@ -6,3 +6,5 @@
 -"gloss.xlsx" also contains many catalog numbers that do not exist in database
  -need to be checked for 'primary' catalog number neighbors (idea is that secondary numbers are wrong)
 -not all measurements use the [catalog]_[manbran] format
+ -some omit the manbran
+ -some have it, but have the order backwards
