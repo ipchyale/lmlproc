@@ -1,0 +1,6 @@
+-UMAP and t-SNE change topology of feature space
+ -dense regions act like objects with mass, gravity draws neighbors in
+ -this cleans out the spaces between
+-creating anomalies to see how they behave with UMAP
+ -"lonely voxel" algorithm very slow
+ -should use density estimation

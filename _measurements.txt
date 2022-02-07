@@ -8,3 +8,17 @@
 -not all measurements use the [catalog]_[manbran] format
  -some omit the manbran
  -some have it, but have the order backwards
+-sometimes entire catalog numbers, including the manbran suffix, occur in more than one binder (referring to texture images here). That's either impossible, or a weird fact about the binders we need to address.
+-for texture files, there are a number of things to check:
+ -NN
+  -by slice pairs
+  -by trial
+  -by catalog (average across all tiles)
+  -by representative
+   -trial as rep
+   -tile as rep *(this is what yente does)
+ -medians to reduce outliers?
+ -synthesize images from averaged parameters? (probably not)
+ -Yente app
+  -chooses a vector rep by finding the tile closest to the centroid for all tiles in a pocket
+  -chooses an 'image' rep by selecting the image with the highest tile centrality 
