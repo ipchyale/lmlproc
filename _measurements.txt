@@ -1,14 +1,35 @@
 -we are searching for legacy measurement files
--most thickness measurements in database are from GCI study
--"gloss" and "Gloss?" columns in database do not match
+
+ -most thickness measurements in database are from GCI study
+
+ -"gloss" and "Gloss?" columns in database do not match
+ 
  -may be that "Gloss?" checkboxes for some gloss-measured papers were left unchecked
--"gloss.xlsx" raw file contains 1550 unique catalog numbers, and there are 1551 non-null values in "Gloss?" column, but union set is much larger than intersection
--"gloss.xlsx" also contains many catalog numbers that do not exist in database
+
+ -"gloss.xlsx" raw file contains 1550 unique catalog numbers, and there are 1551 non-null values in "Gloss?" column, but union set is much larger than intersection
+
+ -"gloss.xlsx" also contains many catalog numbers that do not exist in database
+ 
  -need to be checked for 'primary' catalog number neighbors (idea is that secondary numbers are wrong)
+
 -not all measurements use the [catalog]_[manbran] format
  -some omit the manbran
  -some have it, but have the order backwards
+
 -sometimes entire catalog numbers, including the manbran suffix, occur in more than one binder (referring to texture images here). That's either impossible, or a weird fact about the binders we need to address.
+
+
+TEXTURE
+-texture images, and their pre-processed counterparts, live on the server share, put there by Jack
+
+-I've converted many to JPG for display purposes, using native Mac tools for conversion
+ 
+ ``$ open *.tif -a ~/Desktop/TIFF2JPG.app``
+
+ -sometimes this needs to be run a few times in a folder, because a large queue of files will sometimes choke it
+
+-tiles were created by sp.py (in Yente utils), using Nick's scripts
+
 -for texture files, there are a number of things to check:
  -NN
   -by slice pairs
