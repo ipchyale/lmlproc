@@ -21,6 +21,13 @@
 
 TEXTURE
 -texture images, and their pre-processed counterparts, live on the server share, put there by Jack
+ -Jack is trying to see whether we can go without pre-processing for glyph values
+  -seems very possible using simple center crop
+ -Standard Deviation (together with some bandpass and norm) is a great approximation of surface roughness
+ -a core problem is that surface topography is not always captured accurately by raking light to pixel brightness pipeline
+  -sometimes scope's resolution simply can't resolve a fine texture
+  -sometimes a pocked film will mean a weird surface topography that may not reflect what we're interested in, which is PAPER topography
+  -sometimes our capture-processing pipeline react to optical phenomenon that aren't surface topography related (like metallic silver papers)
 
 -I've converted many to JPG for display purposes, using native Mac tools for conversion
  
@@ -32,7 +39,8 @@ TEXTURE
 
 -for texture files, there are a number of things to check:
  -NN
-  -by slice pairs
+  -by tile pairs (this is what Yente will probably switch to)
+   -could do closest tile pair AFTER removing outliers (especially artifact outliers)
   -by trial
   -by catalog (average across all tiles)
   -by representative
@@ -40,6 +48,8 @@ TEXTURE
    -tile as rep *(this is what yente does)
  -medians to reduce outliers?
  -synthesize images from averaged parameters? (probably not)
+  -though this could help eliminate outliers, like when a black speck of dust is visible
+   -outliers like these, and other issues like flat field artifacts (e.g., corner vignetting) exert too much influence on neighbor search, and make results seem worse because the artifact takes priority over the mainfield texture
  -Yente app
   -chooses a vector rep by finding the tile closest to the centroid for all tiles in a pocket
   -chooses an 'image' rep by selecting the image with the highest tile centrality 
