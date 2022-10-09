@@ -21,17 +21,26 @@ def get_image_list(indir,omit_folders=None):
     return [item for item in allfiles if item[-4:]==".tif"]
 
 def main():
-    indir = sys.argv[1]
+    try:
+        indir = sys.argv[1]
+    except:
+        raise TypeError("must supply a directory name")
 
     try:
         outfile = sys.argv[2]
+
+        try:
+            omit_folders = sys.argv[3:]
+        except:
+            omit_folders = None
+
     except:
         outfile = indir + indir.rstrip("/").split("/")[-1] + ".csv"
 
-    try:
-        omit_folders = sys.argv[3]
-    except:
-        omit_folders = None
+        try:
+            omit_folders = sys.argv[2:]
+        except:
+            omit_folders = None
 
     image_list = get_image_list(indir,omit_folders)
     df = pd.DataFrame({"localpath":image_list})
