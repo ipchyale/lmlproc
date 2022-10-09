@@ -41,7 +41,7 @@ def main():
     df = pd.DataFrame({"localpath":image_list})
 
     attach(df,"localpath")
-    df["localpath_tifpass"] = tifpass(outdir,verbose=True)
+    df["localpath_tifpass"] = tifpass(outdir,verbose=True,include_dir=True)
     df.to_csv(outdir+"/localpath_tifpass.csv",index=False)
 
 if __name__ == "__main__":
