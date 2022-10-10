@@ -1,0 +1,22 @@
+2022-10-10
+12:05 AM
+iMac:dc987
+screen: roughness
+roughness.py
+indir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/LML Collection/
+outfile: ~/Desktop/genome_texture_1365_250_201_5_subtract.csv
+omit_folders: [lady, Notes]
+rows: 16290
+<After removing any 'processed' or 'cropped' folders from the tree 'LML Collection',
+I ran this script with the default preprocess settings. This is every texture image we have 
+right now. I had just run some tests showing that these preprocess parameters are very
+robust and the results between then are very linearly correlated (~0.99). Have not yet tested
+whether subtraction vs. division is the cause of the significant nonlinearity I observed
+after running this script on the total data, with parameters {1024,250,151,5,divide} and
+then {1365,250,201,5,subtract}. By 'total data', I'm here including even the processed
+and cropped images that were later removed. The results between these two parameter settings
+were rank-correlated pretty strongly (~0.75), but essentially uncorrelated linearly (0.4).>
+
+
+
+
