@@ -4,3 +4,4 @@
 -creating anomalies to see how they behave with UMAP
  -"lonely voxel" algorithm very slow
  -should use density estimation
+

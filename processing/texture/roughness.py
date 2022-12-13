@@ -35,7 +35,7 @@ def main():
             omit_folders = None
 
     except:
-        outfile = indir + indir.rstrip("/").split("/")[-1] + ".csv"
+        outfile = indir + "/" + indir.rstrip("/").split("/")[-1] + ".csv"
 
         try:
             omit_folders = sys.argv[2:]

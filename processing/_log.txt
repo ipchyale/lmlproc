@@ -1,21 +1,212 @@
 2022-10-10
 12:05 AM
-iMac:dc987
+machine/user: iMac/dc987
+dimension: texture
 screen: roughness
-roughness.py
+script: roughness.py
 indir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/LML Collection/
-outfile: ~/Desktop/genome_texture_1365_250_201_5_subtract.csv
+outfile: ~/Desktop/genome_roughness_1365_250_201_5_subtract.csv
+params: {N=1365,gain=250,low_pass_sigma=201,high_pass_sigma=5,low_pass_apply=subtract}
 omit_folders: [lady, Notes]
 rows: 16290
 <After removing any 'processed' or 'cropped' folders from the tree 'LML Collection',
 I ran this script with the default preprocess settings. This is every texture image we have 
 right now. I had just run some tests showing that these preprocess parameters are very
-robust and the results between then are very linearly correlated (~0.99). Have not yet tested
-whether subtraction vs. division is the cause of the significant nonlinearity I observed
-after running this script on the total data, with parameters {1024,250,151,5,divide} and
-then {1365,250,201,5,subtract}. By 'total data', I'm here including even the processed
+robust and the results between then are very linearly correlated (~0.99). I observed a failure 
+of linearity after running this script on the total data, with parameters {1024,250,151,5,divide} 
+and then {1365,250,201,5,subtract}. By 'total data', I'm here including even the processed
 and cropped images that were later removed. The results between these two parameter settings
-were rank-correlated pretty strongly (~0.75), but essentially uncorrelated linearly (0.4).>
+were rank-correlated pretty strongly (~0.75), but essentially uncorrelated linearly (0.4).
+I checked this later and could not reproduce the low correlation. None of the above params
+affected the linear correlation, including the subtract/divide distinction. Was perhaps a data
+issue?>
+
+2022-10-10
+1:20 AM
+machine/user: iMac/dc987
+dimension: texture
+screen: tifpass
+script: preprocess.py
+indir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/LML Collection/
+outdir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/preprocessed/
+outfile: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/preprocessed/localpath_tifpass.csv
+params: {N=1365,gain=250,low_pass_sigma=201,high_pass_sigma=5,low_pass_apply=subtract,~plainsave}
+omit_folders: [lady, Notes]
+rows: 16290
+<Ran preprocessing with same params as the roughness extraction above. Used Jack's 3-sigma,
+gray colormap trick to make the texture images more human readable. This adjustment is made
+after roughness extraction, and is not reflected in the roughness value: it is not what the 
+machine "sees", which is a pure black and white image. Nifty thing about this ~plainsave
+approach is that we can save to JPG directly, which I think might not be the case with plainsave.>
+
+2022-10-10
+12:10 PM
+machine/user: MBP/damoncrockett
+dimension: color
+script: raw2table.ipynb
+indir: ~/Dropbox/lml/genome_2021/
+outfile: ~/genome_2021/processing/color/table.csv
+rows: 86491
+<The raw2table notebook pulls in all the Dropbox color files, parses them with ss2csv, and
+creates a megaframe by concatenating them together. It then saves to table.csv, in the same dir.>
+
+2022-10-16
+11:40 PM
+machine/user: MBP/damoncrockett
+dimension: texture
+script: texture_choice.ipynb
+indir: /Users/damoncrockett/Desktop/paperbase_data/preprocessed
+infile: /Users/damoncrockett/Desktop/paperbase_data/genome_roughness_1365_250_201_5_subtract.csv [scp from 172.24.52.152]
+outdir: ~/genome_2021/processing/texture/texture
+outfile: ~/genome_2021/processing/texture/texture.csv
+cols: ['catalog','roughness']
+rows: 5586
+<Choosing median texture image. Copying those images to a folder. Saving the dataframe. Then uploaded to ipch.app/phenome/texture
+using the AWS CLI tool. Worth noting that I didn't explicitly deal with possible duplicates caused by typos. When I do an 
+"official" run, I will have to do that.>
+
+2022-10-17
+12:19 AM
+machine/user: MBP/damoncrockett
+dimension: texture
+script: resize.ipynb
+indir: ~/genome_2021/processing/texture/texture
+outdir: [~/genome_2021/processing/texture/texture_512, ~/genome_2021/processing/texture/texture_256]
+rows: 5586
+<Two resizes for the web: one for gridMode, one for gridModeSmall. Uploaded to ipch.app/phenome/texture_512 and ipch.app/phenome/texture_256.>
+
+2022-10-17
+1:30 AM
+machine/user: MBP/damoncrockett
+dimension: thickness
+script: thickness.ipynb
+indir: ~/Dropbox/lml/genome_2021/
+outfile: ~/genome_2021/processing/thickness/thickness.csv
+rows: 4386
+<This script deals with the great diversity of column headings for catalog numbers (there were eight variants!), takes the 
+median of each row, and deals with some catalog id issues. I also drop any duplicate catalog numbers whose manbrans don't match.
+When they do match, I take the overall median. I remove items from IgnoreList.>
+
+2022-10-17
+1:46 AM
+machine/user: MBP/damoncrockett
+dimension: color
+script: table2clean.ipynb
+infile: ~/genome_2021/processing/color/table.csv
+outfile: ~/genome_2021/processing/color/clean.csv
+rows: 28405
+<table2clean is the core cleaning notebook for the color data. I do lots of format validation, as many of the sample IDs are in 
+non-standard formats. I also remove any non-sequential duplicates and remove items from flag files. I select mode M0 and 
+convert a few stray LUV readings to LAB.>
+
+2022-10-17
+3:24 AM
+machine/user: MBP/damoncrockett
+dimension: color
+script: clean2valid.ipynb
+infile: ~/genome_2021/processing/color/clean.csv
+outfile: ~/genome_2021/processing/color/valid.csv
+rows: 28405
+<clean2valid changes some mloc entries, because they were erroneous. We know this by looking at the lightness values. It turns
+out that we didn't remove any measurements, although an earlier version of this notebook removed any imbalanced catalog numbers:
+ones where there unequal numbers of dmax and dmin measurements.>
+
+2022-10-17
+3:28 AM
+machine/user: MBP/damoncrockett
+dimension: color
+script: valid2colors.ipynb
+infile: ~/genome_2021/processing/color/valid.csv
+outfile: ~/genome_2021/processing/color/colors.csv
+rows: 28405
+<Here we convert from LAB to a range of other color spaces.>
+
+2022-10-17
+3:59 AM
+machine/user: MBP/damoncrockett
+dimension: color
+script: colors2paperbase.ipynb
+infile: ~/genome_2021/processing/color/colors.csv
+outfile: ~/genome_2021/processing/color/color.csv
+rows: 9259
+<We remove several columns, including the spectral data. We select medians. We will do further processing before creating the
+JSON file, but that will be done in the paperbase notebooks.>
+
+2022-10-17
+11:50 AM
+machine/user: MBP/damoncrockett
+dimension: gloss
+script: gloss.ipynb
+indir: ~/Dropbox/lml/genome_2021/
+outfile: ~/genome_2021/processing/gloss/gloss.csv
+rows: 5789
+<Basic gloss processing, from raw files. Custom parser for xlsx files. Remove duplicate catalog numbers that have different 
+manbrans. Take median of remaining. Select only 60 degree angle. Determined 60 degree angle has lowest intra-sample variance.>
+
+2022-10-17
+12:50 PM
+machine/user: MBP/damoncrockett
+dimension: genome
+script: radar.ipynb
+infiles: [~/genome_2021/processing/gloss/gloss.csv,~/genome_2021/processing/color/color.csv,~/genome_2021/processing/texture/texture.csv,~/genome_2021/processing/thickness/thickness.csv]
+outfile: ~/genome_2021/processing/genome/radar.csv
+rows: 5624
+<Ingest all glyph dimension files, create single dataframe. Remove any rows lacking at least two dims. Lost ~560 rows.>
+
+2022-10-17
+1:50 PM
+machine/user: MBP/damoncrockett
+dimension: genome
+script: radar_impute.ipynb
+infile: ~/genome_2021/processing/genome/radar.csv
+outfile: ~/genome_2021/processing/genome/radar_impute.csv
+rows: 5624
+<Imputed missing values via linear regression. Ended up filling all missing values, except for dmax color.>
+
+2022-10-17
+2:30 PM
+machine/user: MBP/damoncrockett
+dimension: images
+script: package_resize.ipynb
+indir: ~/genome_2021/data/images/genome_packages
+outdir: ~/genome_2021/data/images/genome_packages_2048
+rows: 2597
+<Resized uncropped package images to 2048 for focus mode in paperbase. Uploaded to ipch.app/phenome/packages_2048. When script was run, image folders were on the 
+Desktop, but have since been moved to this git directory.>
+
+2022-10-17
+5:45 PM
+machine/user: MBP/damoncrockett
+dimension: images
+script: package_crop.ipynb
+indir: ~/genome_2021/data/images/genome_packages_2048
+outdir: ~/genome_2021/data/images/genome_packages_2048_barcrop_wide
+rows: 2597
+<Cropped out the color bar for the resized images. The algorithm is a bit janky, but worked perfectly. It measures the variance in saturation and brightness
+for vertical strips of the image, detecting where there are sudden changes, and chooses a crop edge after the first return to gray.>
+
+2022-10-17
+6:16 PM
+machine/user: MBP/damoncrockett
+dimension: images
+script: mogrify -path ~/genome_2021/data/images/genome_packages_2048_barcrop_wide_magick -fuzz 20% -trim +repage -trim +repage *
+indir: ~/genome_2021/data/images/genome_packages_2048_barcrop_wide
+outdir: ~/genome_2021/data/images/genome_packages_2048_barcrop_wide_magick
+rows: 2597
+<Used ImageMagick to crop the images further. It did ok. At first, it was undercropping some, and overcropping some. I changed the fuzz percentage to 20% from 30%, and
+it stopped overcropping. But many arae undercropped. For now, it will have to do.>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
