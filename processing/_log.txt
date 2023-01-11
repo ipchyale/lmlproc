@@ -196,7 +196,18 @@ rows: 2597
 <Used ImageMagick to crop the images further. It did ok. At first, it was undercropping some, and overcropping some. I changed the fuzz percentage to 20% from 30%, and
 it stopped overcropping. But many arae undercropped. For now, it will have to do.>
 
-
+2023-01-11
+12:40 PM
+machine/user: iMac/dc987
+dimension: texture
+screen: roughness
+script: roughness.py
+indir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/LML Collection/
+outfile: ~/genome_2021/processing/texture/genome_roughness_768_250_501_21_divide.csv
+params: {N=768,gain=250,low_pass_sigma=501,high_pass_sigma=21,low_pass_apply=divide}
+omit_folders: [lady, Notes]
+rows: 16290
+<Ran some experiments on the Gaussian params, and found a better combination, so rerunning. This will make the genome measures compatible with any new collections.>
 
 
 
