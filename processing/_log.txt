@@ -209,7 +209,7 @@ omit_folders: [lady, Notes]
 rows: 16290
 <Ran some experiments on the Gaussian params, and found a better combination, so rerunning. This will make the genome measures compatible with any new collections.>
 
-2023-11-12
+2023-01-12
 2:15 PM
 machine/user: MBP/damoncrockett
 dimension: texture
@@ -221,7 +221,7 @@ rows: 5586
 <Choosing median texture image. Worth noting that I didn't explicitly deal with possible duplicates caused by typos. When I do an "official" run, 
 I will have to do that. I saved the iMac filepaths but did not copy the images to any folder yet, or upload to Paperbase yet.>
 
-2023-11-12
+2023-01-12
 3:20 PM
 machine/user: MBP/damoncrockett
 dimension: genome
@@ -231,8 +231,28 @@ outfile: ~/genome_2021/processing/genome/radar.csv
 rows: 5624
 <Ingest all glyph dimension files, create single dataframe. Remove any rows lacking at least two dims. Lost 562 rows.>
 
+2023-03-29
+3:00 PM
+machine/user: iMac/dc987
+dimension: texture
+infile: ~/genome_2021/processing/texture/texture.csv
+outdir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/chosen/
+script: ipython (simple shutil.copy(); copied folder into basename as well, to avoid dupe overwrites)
+rows: 5586
+<Copied the localpaths from texture.csv (in this folder) to another folder. Note that there is still the problem of possible dupes. However, the problem is not that this data will have dupes. It's that when we did the 'texture_choice' algorithm, we grouped by catalog number, and some of those numbers are typos, resulting in spurious dupes. Some might also be genuine dupes that exist in more than one binder. But now, our data may be corrupted. It'll have to wait for now.>  
 
+2023-03-29
+4:00 PM
+machine/user: iMac/dc987
+dimension: texture
+indir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/chosen/
+outdir: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/chosen_preprocessed/
+outfile: /Volumes/G-DRIVE Thunderbolt 3/genome_texture/chosen_preprocessed/texture.csv
+script: ipython (ivpy.utils.tifprocess)
+rows: 5586
+<Ran exposure preprocessing on the texture images; they get saved as JPGs.>
 
+  
 
 
 
