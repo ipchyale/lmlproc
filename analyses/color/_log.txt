@@ -1,7 +1,0 @@
-0. raw2table() => table.csv
-
-1. table2clean(table) => clean.csv
-
-2. clean2valid(clean) => valid.csv
-
-3. valid2colors(valid) => colors.csv
