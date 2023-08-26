@@ -57,7 +57,7 @@ After processing each dimension separately, we can then consider them together w
 
 Additionally, it is here we can review measurement flags placed at the time of measurement. It would be possible to review these earlier in the process, during the unidimensional processing steps, but they are better reviewed at the end, when we have potentially corroborating information from other dimensions, and we can tell just what consequence our flags will have for the catalog item in question: did we skip multiple measurements? Just one? Should we eliminate the item from the data altogether (e.g., a color paper we flagged along multiple dimensions)? 
 
-### CollectionItem
+### ``CollectionItem`` Class
 
 At this stage, we now have clean, deduped, validated data, and we've reviewed all of our measurement flags. From the perspective of the abstract "dataset", we're done. We have the data. But that data now needs to feed into different applications for analysis, visualization, reporting, etc. And we don't want to store this data simply as a data table (e.g., as a CSV file). Why? Because our collection is always growing, and updating a CSV file is a pain. We want a way to store each item as an instance of a class, a class that applies to every collection item and carries all of its relevant information. This way, when we need to make surgical modifications&mdash;either adding or removing individual items, modifying an item, etc.&mdash;we can work on individual objects without disrupting the rest.
 
