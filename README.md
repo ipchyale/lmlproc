@@ -4,7 +4,7 @@ The raw data for our collection come from various places:
 
 ## Database Catalog
 
-Paul maintains a Microsoft Access database containing the catalog numbers, metadata, and legacy measurement data. A comprehensive cleaning of that database was made summer 2023. It is the authoritative source for catalog numbers, manufacturers, brands, brand descriptions, etc. New collection items are accessioned directly into it, and modifications are made to it via custom Access GUIs that Paul builds. It is stored on the IPCH server share ``\IPCH1-872004-YWCPCH\Labs\LML\``.
+Paul maintains a Microsoft Access database containing the catalog numbers, metadata, and legacy measurement data. A comprehensive cleaning of that database was made summer 2023. It is the authoritative source for catalog numbers, manufacturers, brands, brand descriptions, etc. New collection items are accessioned directly into it, and modifications are made to it via custom Access GUIs that Paul builds. It is stored on the IPCH server share ``/IPCH1-872004-YWCPCH/Labs/LML/``.
 
 ## Legacy Measurement Data
 
@@ -30,7 +30,7 @@ Legacy color measurements were made by Madison, all of them on binder papers.
 
 ### Texture
 
-Modern texture captures are stored on the server share: ``\IPCH1-872004-YWCPCH\Labs\LML\LML_collection\major_studies\texture\LML Collection``
+Modern texture captures are stored on the server share: ``/IPCH1-872004-YWCPCH/Labs/LML/LML_collection/major_studies/texture/LML Collection``
 
 ### Thickness, Gloss, Color
 
